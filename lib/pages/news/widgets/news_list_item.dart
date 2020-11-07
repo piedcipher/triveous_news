@@ -26,11 +26,11 @@ class NewsListItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(8),
                 child: Text(
-                  newsItem.webTitle,
+                  newsItem?.webTitle ?? '',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 20,
-                    color: Colors.black87,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -39,7 +39,9 @@ class NewsListItem extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(8),
                   child: Text(
-                      newsItem.webPublicationDate.getFormattedLocalDateTime()),
+                    newsItem.webPublicationDate.getFormattedLocalDateTime(),
+                    style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white60),
+                  ),
                 ),
               ),
             ],

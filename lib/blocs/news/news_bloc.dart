@@ -25,6 +25,10 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
             'https://content.guardianapis.com/search?api-key=$kApiKey&section=${event.newsCategory.newsCategory(needLowerCase: true)}&page=$page&show-fields=thumbnail');
         if (response is http.Response) {
           if (response.statusCode == 200) {
+            if (response == null || response.body == null) {
+              yield NewsSuccessState(<NewsModel>[]);
+              return;
+            }
             final newsItems =
                 (jsonDecode(response.body)['response']['results'] as List)
                     .map((e) => NewsModel.fromJson(e))

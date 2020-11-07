@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'News',
       initialRoute: Routes.kNews,
+      theme: ThemeData.dark(),
       routes: {
         Routes.kNews: (context) => NewsPage(),
         Routes.kDetails: (context) => DetailsPage(),

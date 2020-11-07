@@ -36,9 +36,15 @@ class _NewsBodyState extends State<NewsBody> {
           if (state is NewsLoadingState) {
             Scaffold.of(context)
                 .showSnackBar(SnackBar(content: Text('Loading')));
-          } else if (state is NewsSuccessState && state.result.isEmpty) {
-            Scaffold.of(context)
-                .showSnackBar(SnackBar(content: const Text('No News')));
+          } else if (state is NewsSuccessState) {
+            if (state.result.isEmpty) {
+              Scaffold.of(context)
+                  .showSnackBar(SnackBar(content: const Text('No News')));
+            } else {
+              Scaffold.of(context).hideCurrentSnackBar();
+              widget.newsBloc.newsModel.addAll(state.result);
+            }
+            widget.newsBloc.isFetching = false;
           } else if (state is NewsErrorState) {
             Scaffold.of(context).showSnackBar(SnackBar(content: Text('Error')));
             widget.newsBloc.isFetching = false;
@@ -49,15 +55,12 @@ class _NewsBodyState extends State<NewsBody> {
           if (state is NewsInitialState ||
               state is NewsLoadingState && widget.newsBloc.newsModel.isEmpty) {
             return CircularProgressIndicator();
-          } else if (state is NewsSuccessState) {
-            Scaffold.of(context).hideCurrentSnackBar();
-            widget.newsBloc.newsModel.addAll(state.result);
-            widget.newsBloc.isFetching = false;
           } else if (state is NewsErrorState &&
               widget.newsBloc.newsModel.isEmpty) {
             return Text('Error');
           }
           return ListView.separated(
+            key: PageStorageKey(scrollController.keepScrollOffset),
             separatorBuilder: (context, index) => SizedBox(
               height: 30,
             ),
