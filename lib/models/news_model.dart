@@ -8,12 +8,14 @@ class NewsModel {
   String webTitle;
   String webUrl;
   Fields fields;
+  String webPublicationDate;
 
   NewsModel({
     this.sectionName,
     this.webTitle,
     this.webUrl,
     this.fields,
+    this.webPublicationDate,
   });
 
   factory NewsModel.fromJson(Map<String, dynamic> json) =>

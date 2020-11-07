@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:triveous_news/blocs/news/news_bloc.dart';
 import 'package:triveous_news/blocs/news/news_event.dart';
 import 'package:triveous_news/blocs/news/news_state.dart';
+import 'package:triveous_news/pages/news/widgets/news_list_item.dart';
 import 'package:triveous_news/utils/constants.dart';
 
 class NewsBody extends StatefulWidget {
@@ -70,30 +71,8 @@ class _NewsBodyState extends State<NewsBody> {
                   widget.newsBloc.add(NewsFetchEvent(widget.newsCategory));
                 }
               }),
-            itemBuilder: (context, index) {
-              return Card(
-                elevation: 1,
-                child: ListTile(
-                  title: widget.newsBloc.newsModel[index]?.fields?.thumbnail !=
-                          null
-                      ? Image.network(
-                          widget.newsBloc.newsModel[index].fields.thumbnail)
-                      : Container(),
-                  subtitle: Center(
-                    child: Container(
-                      margin: EdgeInsets.all(8),
-                      child: Text(
-                        widget.newsBloc.newsModel[index].webTitle,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            },
+            itemBuilder: (context, index) =>
+                NewsListItem(widget.newsBloc.newsModel[index]),
             itemCount: widget.newsBloc.newsModel.length,
           );
         },

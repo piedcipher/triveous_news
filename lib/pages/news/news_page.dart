@@ -42,9 +42,11 @@ class _NewsPageState extends State<NewsPage> {
         ),
         body: TabBarView(
           controller: DefaultTabController.of(context),
-          children: NewsCategory.values.map((e) {
-            return Container(child: NewsBody(e, newsBlocs[e]));
-          }).toList(),
+          children: NewsCategory.values
+              .map(
+                (e) => Container(child: NewsBody(e, newsBlocs[e])),
+              )
+              .toList(),
         ),
       ),
     );

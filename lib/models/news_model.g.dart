@@ -14,6 +14,7 @@ NewsModel _$NewsModelFromJson(Map<String, dynamic> json) {
     fields: json['fields'] == null
         ? null
         : Fields.fromJson(json['fields'] as Map<String, dynamic>),
+    webPublicationDate: json['webPublicationDate'] as String,
   );
 }
 
@@ -22,6 +23,7 @@ Map<String, dynamic> _$NewsModelToJson(NewsModel instance) => <String, dynamic>{
       'webTitle': instance.webTitle,
       'webUrl': instance.webUrl,
       'fields': instance.fields,
+      'webPublicationDate': instance.webPublicationDate,
     };
 
 Fields _$FieldsFromJson(Map<String, dynamic> json) {

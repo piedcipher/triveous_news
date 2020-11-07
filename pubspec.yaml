@@ -12,6 +12,8 @@ dependencies:
   flutter_bloc:
   http:
   json_annotation:
+  intl:
+  webview_flutter:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
