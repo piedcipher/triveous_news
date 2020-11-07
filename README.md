@@ -6,8 +6,9 @@ News App built as a part of Practical task given by [Triveous](http://triveous.c
 
 <table>
     <tr>
-        <td><img src="/readme-medias/screenshots/1.png"></td>
-        <td><img src="/readme-medias/screenshots/2.png"></td>
+        <td><img src="/readme-medias/1.png"></td>
+        <td><img src="/readme-medias/2.png"></td>
+        <td><img src="/readme-medias/3.png"></td>
     </tr>
 </table>
 
