@@ -1,10 +1,17 @@
-# triveous_news
+# News
 
-A new Flutter application.
+News App built as a part of Practical task given by [Triveous](http://triveous.com/).
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+<table>
+    <tr>
+        <td><img src="/readme-medias/screenshots/1.png"></td>
+        <td><img src="/readme-medias/screenshots/2.png"></td>
+    </tr>
+</table>
+
+## Getting Started with Flutter
 
 A few resources to get you started if this is your first Flutter project:
 
